@@ -52,5 +52,5 @@ console.log('item_7 == ' + item_7 + '; item_7_type == ' + typeof item_7_type);
 n + nn + nnn, где n не перемножаются, а конкатенируются
 */
 const a = 3;
-const b = String(a);
-console.log(b + ' ' + b + b + ' ' + b + b + b);
+console.log(a + '' + (a + a) + '' + (a + a + a)); //var 1
+console.log(a + String(a + a) + String(a + a + a)); //var 2
