@@ -16,6 +16,6 @@ for (let index = 0; index < word.length; index++) {
   } else consonants++;
 }
 
-console.log(`${word} contains ${vowels} vowels and ${consonants} consonants`);
+vowelsAndConsonantsResult = `${word} contains ${vowels} vowels and ${consonants} consonants`;
 
 export { vowelsAndConsonantsResult };
