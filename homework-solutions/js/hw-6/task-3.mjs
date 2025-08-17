@@ -8,4 +8,17 @@
 */
 let unique;
 
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9];
+
+for (let i = 0; i < array.length; i++) {
+  const firstIndex = array.indexOf(array[i]);
+  const lastIndex = array.lastIndexOf(array[i]);
+
+  if (firstIndex != lastIndex) {
+    array.splice(lastIndex, 1);
+  }
+}
+
+unique = array;
+
 export { unique };

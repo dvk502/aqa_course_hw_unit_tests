@@ -5,8 +5,15 @@
   - Например: mergeArrays([1,2], [3,4], [5,6]) // [1,2,3,4,5,6]
   - Решить с использованием Spread operator
 */
-function mergeArrays() {
-  // Ваш код
+function mergeArrays(...arrays) {
+  const mergeArrays = [];
+  for (let i = 0; i < arrays.length; i++) {
+    const tempArray = arrays[i];
+    for (let j = 0; j < tempArray.length; j++) {
+      mergeArrays.push(tempArray[j]);
+    }
+  }
+  return mergeArrays;
 }
 /*
   2. Devide by _
@@ -15,7 +22,18 @@ function mergeArrays() {
     - Пример: I am super engineer => i_Am_Super_Engineer
   */
 function devideBy(sentence) {
-  // Ваш код
+  const sentenceInArray = sentence.replace(/\s+/g, ' ').split(' ');
+  let changedSentence = '';
+  for (let i = 0; i < sentenceInArray.length; i++) {
+    if (i === 0) {
+      sentenceInArray[i] = sentenceInArray[i].charAt(0).toLowerCase() + sentenceInArray[i].slice(1).toLowerCase();
+    } else {
+      sentenceInArray[i] = sentenceInArray[i].charAt(0).toUpperCase() + sentenceInArray[i].slice(1).toLowerCase();
+    }
+  }
+  changedSentence = sentenceInArray.join('_');
+
+  return changedSentence;
 }
 /*
   3. Фибаначчи
@@ -26,7 +44,14 @@ function devideBy(sentence) {
     - Например fibonacci(8) //21
   */
 function fibonacci(n) {
-  // Ваш код
+  const array = [0, 1];
+  if (n == 0) return array[0];
+  if (n == 1) return array[1];
+
+  for (let i = 2; i <= n; i++) {
+    array.push(array[i - 1] + array[i - 2]);
+  }
+  return array[n];
 }
 
 export { mergeArrays, fibonacci, devideBy };
