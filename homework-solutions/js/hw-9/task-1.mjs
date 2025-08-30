@@ -22,11 +22,9 @@ const logSpy = jest.spyOn(console, 'log');
 // ---
 
 // Ваш код
-let keyValuePairs = [];
-for (let key in character) {
-  const array = [key, character[key]];
-  console.log(`key = ${key}, value = ${character[key]}`);
-  keyValuePairs.push(array);
+let keyValuePairs = Object.entries(character);
+for (const [key, value] of keyValuePairs) {
+  console.log(`key = ${key}, value = ${value}`);
 }
 
 // 4
