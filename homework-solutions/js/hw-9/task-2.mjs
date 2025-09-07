@@ -21,21 +21,20 @@ function addCharacter(character) {
 }
 
 function getCharacter(name) {
-  for (const element of characters) {
-    if (element.name === name) return element;
-  }
+  return characters.find((nameCharacters) => nameCharacters.name === name);
 }
 
 function getCharactersByAge(minAge) {
   if (typeof minAge !== 'number') throw new Error('Incorrect type');
 
-  return characters.reduce((summ, value) => {
-    if (minAge <= value.age) summ.push(value);
-    return summ;
-  }, []);
+  return characters.filter((ageOfCharachter) => ageOfCharachter.age >= minAge);
 }
 
 function updateCharacter(name, newCharacter) {
+  if (typeof newCharacter.name !== 'string' || typeof newCharacter.age !== 'number') {
+    throw new Error('Character not found');
+  }
+
   const indexOfCharacter = characters.findIndex((value) => value.name === name);
 
   if (indexOfCharacter !== -1) {
@@ -47,7 +46,7 @@ function removeCharacter(name) {
   const indexOfCharacter = characters.findIndex((value) => value.name === name);
 
   if (indexOfCharacter !== -1) {
-    characters.splice(indexOfCharacter, indexOfCharacter);
+    characters.splice(indexOfCharacter, 1);
   } else throw new Error('Element for delete not found');
 }
 
